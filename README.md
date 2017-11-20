@@ -3,20 +3,11 @@
 
 ## Usage
 
+This is an assortment of system-provided packages that
+are usually needed for productive lisp development.
 
-## Dependencies
-This library is at least tested on implementation listed below:
-
-+ SBCL 1.4.0 on X86-64 Linux 4.10.0-38-generic (author's environment)
-
-Also, it depends on the following libraries:
-
-+ trivia :
-    
-+ alexandria by *Nikodemus Siivola <nikodemus@sb-studio.net>, and others.* :
-    Alexandria is a collection of portable public domain utilities.
-+ iterate by ** :
-    Jonathan Amsterdam's iterator/gatherer/accumulator facility
+Loading this asdf system automatically installs the packages through
+the system-provided package manager such as apt, yum, brew, pacman.
 
 ## Installation
 
@@ -31,5 +22,4 @@ Copyright (c) 2017 Masataro Asai (guicho2.71828@gmail.com)
 # License
 
 Licensed under the LLGPL License.
-
 
