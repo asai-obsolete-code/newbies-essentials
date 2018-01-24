@@ -13,21 +13,28 @@
  :defsystem-depends-on (:trivial-package-manager)
  :description "Install the essential programs for lisp newbies."
  :perform (load-op :before (op c)
+           #+(or)
+           (trivial-package-manager:ensure-program
+            "make" :apt "make" :dnf "make" :yum "make"
+            :pacman "make" :yaourt "make" :brew
+            "make" :macports "make" :fink "gmake" :choco )
            (uiop/package:symbol-call :trivial-package-manager :ensure-program
                                      "make" :apt "make" :dnf "make" :yum "make"
                                      :pacman "make" :yaourt "make" :brew
-                                     "make" :macports "make" :fink "make")
+                                     "make" :macports "make" :fink "gmake" :choco "make")
+           (uiop/package:symbol-call :trivial-package-manager :ensure-program
+                                     "automake" :apt "automake" :dnf "automake" :yum "automake"
+                                     :pacman "automake" :yaourt "automake" :brew
+                                     "automake" :macports "automake" :fink "automake1.15")
            (uiop/package:symbol-call :trivial-package-manager :ensure-program
                                      "curl" :apt "curl" :dnf "curl" :yum "curl"
                                      :pacman "curl" :yaourt "curl" :brew
                                      "curl" :macports "curl" :fink "curl")
            (uiop/package:symbol-call :trivial-package-manager :ensure-library
-                                     "libffi" :apt "libffi" :dnf "libffi" :yum
+                                     "libffi" :apt "libffi6" :dnf "libffi" :yum
                                      "libffi" :pacman "libffi" :yaourt
                                      "libffi" :brew "libffi" :macports "libffi"
-                                     :fink "libffi")
+                                     :fink "libffi6")
            (uiop/package:symbol-call :trivial-package-manager :ensure-library
-                                     "libfixposix" :apt "libfixposix" :dnf "libfixposix" :yum
-                                     "libfixposix" :pacman "libfixposix" :yaourt
-                                     "libfixposix" :brew "libfixposix" :macports "libfixposix"
-                                     :fink "libfixposix")))
+                                     "libfixposix" :apt "libfixposix-dev" :dnf "libfixposix" :yum
+                                     "libfixposix" :brew "libfixposix")))
